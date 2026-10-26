@@ -1,237 +1,197 @@
-const envelope = document.getElementById("envelope");
-const letter = document.getElementById("letter");
+const stars = document.getElementById("stars");
+const meteors = document.getElementById("meteors");
+
+/* ==========================
+   ⭐ BINTANG
+========================== */
+
+for(let i=0;i<350;i++){
+
+const star=document.createElement("div");
+
+const size=Math.random()*3+1;
+
+star.style.position="absolute";
+star.style.width=size+"px";
+star.style.height=size+"px";
+star.style.borderRadius="50%";
+star.style.background="white";
+
+star.style.left=Math.random()*100+"vw";
+star.style.top=Math.random()*100+"vh";
+
+star.style.opacity=Math.random();
+
+star.animate(
+
+[
+{opacity:.2,transform:"scale(.8)"},
+{opacity:1,transform:"scale(1.4)"},
+{opacity:.3,transform:"scale(1)"}
+],
+
+{
+
+duration:1500+Math.random()*3500,
+
+iterations:Infinity
+
+}
+
+);
+
+stars.appendChild(star);
+
+}
+
+/* ==========================
+   🌠 METEOR
+========================== */
+
+function meteor(){
+
+const m=document.createElement("div");
+
+m.style.position="absolute";
+
+m.style.width="180px";
+
+m.style.height="2px";
+
+m.style.background="linear-gradient(to right,#fff,#8fd8ff,transparent)";
+
+m.style.boxShadow="0 0 20px #8fd8ff";
+
+m.style.left="-200px";
+
+m.style.top=Math.random()*25+"vh";
+
+/* diagonal */
+m.style.transform="rotate(35deg)";
+
+meteors.appendChild(m);
+
+m.animate(
+
+[
+{
+transform:"translate(0,0) rotate(35deg)",
+opacity:1
+},
+
+{
+transform:"translate(130vw,70vh) rotate(35deg)",
+opacity:0
+}
+
+],
+
+{
+
+duration:1800,
+
+easing:"linear"
+
+}
+
+);
+
+setTimeout(()=>m.remove(),1800);
+
+}
+
+setInterval(()=>{
+
+meteor();
+
+},20000+Math.random()*15000);
+
+/* ==========================
+   💌 AMPLOP & SURAT
+========================== */
+
 const openBtn = document.getElementById("openBtn");
 const closeBtn = document.getElementById("closeBtn");
+
+const home = document.getElementById("home");
+const letterPage = document.getElementById("letterPage");
+
 const typing = document.getElementById("typing");
 
-const stars = document.getElementById("stars");
-const clouds = document.getElementById("clouds");
-const particles = document.getElementById("particles");
+const music = document.getElementById("bgMusic");
 
-const text=`Untuk Fanny...
+const text = `Untuk Fanny...
 
-Kalau suatu hari kamu merasa hidup terasa berat...
+Kalau suatu hari kamu merasa lelah, berhentilah sejenak, bukan untuk menyerah, tetapi untuk mengumpulkan kembali semangatmu.
 
-Jangan lupa...
+Aku tahu hidup tidak selalu mudah. Ada hari ketika semuanya terasa berat, ada mimpi yang terasa jauh, dan ada malam ketika kita hanya ingin diam.
 
-Kamu jauh lebih kuat daripada yang kamu kira.
+Tetapi percayalah...
 
-Aku tahu mungkin ada hari-hari
-yang membuatmu lelah.
+Setiap langkah kecil yang kamu ambil tetap berarti.
 
-Ada saat ketika semuanya terasa sepi.
+Pelan bukan berarti gagal.
 
-Tetapi...
+Beristirahat bukan berarti menyerah.
 
-Jangan pernah menyerah.
+Aku berharap suatu hari nanti kamu melihat ke belakang dan tersenyum karena ternyata semua perjuanganmu membawa kamu sejauh ini.
 
-Percayalah...
+Tetaplah menjadi dirimu sendiri.
 
-Masa lalu bukan penentu masa depanmu.
+Tetaplah bermimpi.
 
-Kamu tetap berharga.
+Tetaplah kuat.
 
-Kamu tetap pantas dicintai.
-
-Kamu tetap pantas mengejar semua mimpimu.
-
-Kalau langkahmu hari ini terasa pelan...
-
-Tidak apa-apa.
-
-Yang penting jangan berhenti.
-
-Semoga suatu hari nanti...
-
-Kamu bisa melihat ke belakang...
-
-Lalu tersenyum...
-
-Dan berkata...
-
-"Aku berhasil melewati semuanya."
-
-Terima kasih karena tetap menjadi dirimu sendiri.
-
-Semoga Allah selalu menjaga setiap langkahmu.
-
-🤍
+Karena aku percaya, masa depanmu masih menyimpan banyak hal indah yang sedang menunggumu.
 
 — Fikri`;
 
+openBtn.onclick=()=>{
+
+home.style.opacity="0";
+
+home.style.transform="scale(.9)";
+
+setTimeout(()=>{
+
+home.style.display="none";
+
+letterPage.style.display="flex";
+
+music.play().catch(()=>{});
+
+typeText();
+
+},700);
+
+};
+
+closeBtn.onclick=()=>{
+
+location.reload();
+
+};
+
+function typeText(){
+
+typing.innerHTML="";
+
 let i=0;
 
-function typeWriter(){
+const speed=40;
 
-if(i<text.length){
+const timer=setInterval(()=>{
 
 typing.innerHTML+=text.charAt(i);
 
 i++;
 
-setTimeout(typeWriter,28);
+if(i>=text.length){
+
+clearInterval(timer);
 
 }
 
-}
-
-openBtn.onclick=()=>{
-
-envelope.style.transform="scale(.85)";
-envelope.style.opacity="0";
-
-setTimeout(()=>{
-
-envelope.style.display="none";
-
-letter.style.display="block";
-
-typing.innerHTML="";
-
-i=0;
-
-typeWriter();
-
-},500);
+},speed);
 
 }
-
-closeBtn.onclick=()=>{
-
-letter.style.display="none";
-
-envelope.style.display="block";
-
-envelope.style.opacity="1";
-
-envelope.style.transform="scale(1)";
-
-}
-
-function createStar(){
-
-const s=document.createElement("div");
-
-s.className="star";
-
-const size=Math.random()*3+1;
-
-s.style.width=size+"px";
-
-s.style.height=size+"px";
-
-s.style.left=Math.random()*100+"vw";
-
-s.style.top=Math.random()*100+"vh";
-
-s.style.animationDuration=(2+Math.random()*4)+"s";
-
-stars.appendChild(s);
-
-}
-
-for(let x=0;x<250;x++){
-
-createStar();
-
-}
-
-function createCloud(){
-
-const c=document.createElement("div");
-
-c.className="cloud";
-
-c.style.width=(120+Math.random()*180)+"px";
-
-c.style.height=(45+Math.random()*40)+"px";
-
-c.style.top=Math.random()*35+"vh";
-
-c.style.left="-300px";
-
-c.style.animationDuration=(35+Math.random()*40)+"s";
-
-clouds.appendChild(c);
-
-}
-
-for(let x=0;x<6;x++){
-
-setTimeout(createCloud,x*6000);
-
-}
-
-function createParticle(){
-
-const p=document.createElement("div");
-
-p.className="particle";
-
-p.style.left=Math.random()*100+"vw";
-
-const size=Math.random()*4+2;
-
-p.style.width=size+"px";
-
-p.style.height=size+"px";
-
-p.style.animationDuration=(6+Math.random()*5)+"s";
-
-particles.appendChild(p);
-
-setTimeout(()=>{
-
-p.remove();
-
-},11000);
-
-}
-
-setInterval(createParticle,250);
-
-// Bintang jatuh
-
-setInterval(()=>{
-
-const meteor=document.createElement("div");
-
-meteor.style.position="fixed";
-
-meteor.style.width="140px";
-
-meteor.style.height="2px";
-
-meteor.style.background="linear-gradient(to right,#fff,#6ec6ff,transparent)";
-
-meteor.style.left=Math.random()*80+"vw";
-
-meteor.style.top=Math.random()*30+"vh";
-
-meteor.style.transform="rotate(-35deg)";
-
-meteor.style.boxShadow="0 0 20px #6ec6ff";
-
-meteor.style.zIndex="0";
-
-meteor.style.transition="2s linear";
-
-document.body.appendChild(meteor);
-
-setTimeout(()=>{
-
-meteor.style.left=(parseFloat(meteor.style.left)+25)+"vw";
-
-meteor.style.top=(parseFloat(meteor.style.top)+40)+"vh";
-
-meteor.style.opacity="0";
-
-},50);
-
-setTimeout(()=>{
-
-meteor.remove();
-
-},2200);
-
-},9000);
