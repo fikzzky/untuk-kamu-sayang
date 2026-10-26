@@ -7,13 +7,13 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Untuk Fanny 🌌</title>
+<title>Blue Night Letter V6</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;700&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="style.css">
 
@@ -21,35 +21,33 @@
 
 <body>
 
-<div id="nightSky"></div>
+<!-- Background -->
 
-<div id="moon"></div>
+<div id="sky"></div>
 
 <div id="stars"></div>
 
 <div id="clouds"></div>
 
+<div id="meteors"></div>
+
 <div id="particles"></div>
 
-<div class="container">
+<div id="moon"></div>
 
-<div class="envelope" id="envelope">
+<!-- Halaman Awal -->
 
-<div class="seal">💙</div>
+<div id="home">
+
+<div id="envelope">
+
+<div class="title">
 
 <h1>Untuk Fanny</h1>
 
-<p>
+<p>Ada sesuatu yang ingin kusampaikan malam ini...</p>
 
-Ada sesuatu...
-
-yang ingin aku sampaikan.
-
-Semoga surat ini
-
-bisa menemanimu malam ini.
-
-</p>
+</div>
 
 <button id="openBtn">
 
@@ -59,35 +57,29 @@ bisa menemanimu malam ini.
 
 </div>
 
-<div class="letter" id="letter">
-
-<div class="topDecoration">
-
-🌙 ✨ ⭐ ✨ 🌙
-
 </div>
 
-<h2>
+<!-- Surat -->
 
-Untuk Fanny
+<div id="letterPage">
 
-</h2>
+<div class="paper">
 
-<div class="divider"></div>
+<h2>Untuk Fanny</h2>
+
+<p class="sub">
+
+A Letter Under The Blue Night Sky
+
+</p>
 
 <div id="typing"></div>
 
-<div class="divider"></div>
-
-<p class="signature">
-
-🤍
-
-<br>
+<div class="signature">
 
 — Fikri
 
-</p>
+</div>
 
 <button id="closeBtn">
 
@@ -98,6 +90,12 @@ Tutup Surat
 </div>
 
 </div>
+
+<audio id="bgMusic" loop>
+
+<source src="music/night.mp3" type="audio/mpeg">
+
+</audio>
 
 <script src="script.js"></script>
 
