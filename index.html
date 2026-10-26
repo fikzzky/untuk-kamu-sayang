@@ -1,19 +1,11 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
 
 <meta charset="UTF-8">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
 <title>Blue Night Letter V6</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="style.css">
 
@@ -21,81 +13,41 @@
 
 <body>
 
-<!-- Background -->
+<div class="scene">
 
-<div id="sky"></div>
+<div class="sky"></div>
 
-<div id="stars"></div>
+<div class="stars"></div>
 
-<div id="clouds"></div>
+<div class="moon"></div>
 
-<div id="meteors"></div>
+<div class="clouds"></div>
 
-<div id="particles"></div>
+<div class="meteors"></div>
 
-<div id="moon"></div>
+<!-- AMPLOP -->
 
-<!-- Halaman Awal -->
+<div class="envelope" id="envelope">
 
-<div id="home">
-
-<div id="envelope">
-
-<div class="title">
-
-<h1>Untuk Fanny</h1>
-
-<p>Ada sesuatu yang ingin kusampaikan malam ini...</p>
-
-</div>
-
-<button id="openBtn">
-
-💌 Buka Surat
-
-</button>
-
-</div>
-
-</div>
-
-<!-- Surat -->
-
-<div id="letterPage">
+<div class="letter" id="letter">
 
 <div class="paper">
 
 <h2>Untuk Fanny</h2>
 
-<p class="sub">
-
-A Letter Under The Blue Night Sky
-
-</p>
-
-<div id="typing"></div>
-
-<div class="signature">
-
-— Fikri
-
-</div>
-
-<button id="closeBtn">
-
-Tutup Surat
-
-</button>
+<p id="typing"></p>
 
 </div>
 
 </div>
 
-<audio id="bgMusic" loop>
+<div class="flap" id="flap"></div>
 
-<source src="music/night.mp3" type="audio/mpeg">
+<div class="front"></div>
 
-</audio>
+</div>
+
+</div>
 
 <script src="script.js"></script>
 
